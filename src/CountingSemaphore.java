@@ -2,21 +2,21 @@ import java.util.concurrent.Semaphore;
 
 public class CountingSemaphore {
 
-    Semaphore binary = new Semaphore(1);
+    Semaphore binary = new Semaphore(2);
   
     public static void main(String args[]) {
-        final CountingSemaphore test = new CountingSemaphore();
+        final CountingSemaphore cs = new CountingSemaphore();
         new Thread(){
             @Override
             public void run(){
-              test.mutualExclusion(); 
+              cs.mutualExclusion();
             }
         }.start();
       
         new Thread(){
             @Override
             public void run(){
-              test.mutualExclusion(); 
+              cs.mutualExclusion(); 
             }
         }.start();
       
